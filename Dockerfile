@@ -29,6 +29,7 @@ RUN git init \
     && /bin/bash -c "source dependencies.sh \
     && git fetch --depth 1 origin \$RUST_G_VERSION" \
     && git checkout FETCH_HEAD \
+    && sed -i 's/time = "0.3.31"/time = { version = "0.3.36", features = ["serde"] }/' Cargo.toml \
     && cargo build --release --all-features --target i686-unknown-linux-gnu
 
 # Build auxmos

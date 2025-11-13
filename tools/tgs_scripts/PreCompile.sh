@@ -46,7 +46,7 @@ if ! ( [ -x "$has_git" ] && [ -x "$has_grep" ] && [ -f "/usr/lib/i386-linux-gnu/
 fi
 dpkg --add-architecture i386
 apt-get update
-apt-get install -y lib32z1 pkg-config libssl-dev:i386 libssl-dev libssl3:i386
+apt-get install -y lib32z1 pkg-config libssl-dev:i386 libssl-dev libssl3:i386 libclang-dev
 # update rust-g
 if [ ! -d "rust-g" ]; then
 	echo "Cloning rust-g..."
@@ -62,6 +62,7 @@ fi
 
 echo "Deploying rust-g..."
 git checkout "$RUST_G_VERSION"
+env PKG_CONFIG_ALLOW_CROSS=1 ~/.cargo/bin/cargo  update -p time --precise 0.3.36
 env PKG_CONFIG_ALLOW_CROSS=1 ~/.cargo/bin/cargo build --release --target=i686-unknown-linux-gnu
 mv target/i686-unknown-linux-gnu/release/librust_g.so "$1/librust_g.so"
 cd ..
@@ -88,7 +89,7 @@ if [ -d "build" ]; then
 	rm -R build
 fi
 # NSV13 - changed to katmos
-cargo rustc --target=i686-unknown-linux-gnu --release --features katmos -- -C target-cpu=native
+~/.cargo/bin/cargo rustc --target=i686-unknown-linux-gnu --release --features katmos -- -C target-cpu=native
 mv -f target/i686-unknown-linux-gnu/release/libauxmos.so "$1/libauxmos.so"
 cd ../../..
 
@@ -101,10 +102,10 @@ if ! [ -x "$has_youtubedl" ]; then
 	else
 		sudo apt-get install -y python3 python3-pip
 	fi
-	pip3 install youtube-dl
+	pip3 install youtube-dl --break-system-packages
 elif [ -x "$has_pip3" ]; then
 	echo "Ensuring youtube-dl is up-to-date with pip3..."
-	pip3 install youtube-dl -U
+	pip3 install youtube-dl -U --break-system-packages
 fi
 
 # compile tgui
