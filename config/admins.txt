@@ -10,12 +10,4 @@
 # and will override any duplicate entries in the database.									  #
 ###############################################################################################
 
-#NSV Operational Staff
-Francinum = Host
-KMC2000 = Project Lead
-Bokkiewokkie = Project Lead
-
-#Upstream Operational Staff
-crossedfall = Server Ops Team
-
-# the rest are in the db
+Neonvolt = Host

@@ -14,7 +14,6 @@ Format:
 endmap
 
 map tycoon
-	default
 	minplayers 12
 	votable
 endmap
@@ -30,6 +29,7 @@ map aetherwhisp
 endmap
 
 map eclipse
+	default
 	maxplayers 10
 	votable
 endmap

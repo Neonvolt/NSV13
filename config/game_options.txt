@@ -16,7 +16,7 @@ REVIVAL_BRAIN_LIFE -1
 
 ## OOC DURING ROUND ###
 ## Comment this out if you want OOC to be automatically disabled during the round, it will be enabled during the lobby and after the round end results.
-#OOC_DURING_ROUND
+OOC_DURING_ROUND
 
 ## LOOC is now an in-game toggle
 
@@ -91,7 +91,7 @@ ALERT_DELTA DANGER: DANGER: The automatic destruct sequence is now activated. Th
 ## GAME MODES ###
 
 #Set the Master (Default) Game Mode.
-MASTER_MODE secret
+MASTER_MODE extended
 
 ## Uncomment to not send a roundstart intercept report. Gamemodes may override this.
 NO_INTERCEPT_REPORT
