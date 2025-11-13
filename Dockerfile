@@ -8,12 +8,16 @@ ENV PKG_CONFIG_ALLOW_CROSS=1 \
     PATH=/usr/local/cargo/bin:$PATH
 WORKDIR /build
 COPY dependencies.sh .
-RUN dpkg --add-architecture i386 \
+RUN sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' /etc/apt/sources.list \
+    && sed -i 's|http://\(deb\|security\).debian.org/debian-security|http://archive.debian.org/debian-security|g' /etc/apt/sources.list \
+    && sed -i '/buster-updates/d' /etc/apt/sources.list \
+    && echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid-until \
+    && dpkg --add-architecture i386 \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
     curl ca-certificates gcc-multilib \
     g++-multilib libc6-i386 zlib1g-dev:i386 \
-    libssl-dev:i386 pkg-config:i386 git \
+    libssl-dev:i386 libclang-dev pkg-config:i386 git \
     && /bin/bash -c "source dependencies.sh \
     && curl https://sh.rustup.rs | sh -s -- -y -t i686-unknown-linux-gnu --no-modify-path --profile minimal --default-toolchain \$RUST_VERSION" \
     && rm -rf /var/lib/apt/lists/*
@@ -39,6 +43,10 @@ RUN git init \
 
 # Install nodejs which is required to deploy BeeStation
 FROM base as node
+RUN sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' /etc/apt/sources.list \
+    && sed -i 's|http://\(deb\|security\).debian.org/debian-security|http://archive.debian.org/debian-security|g' /etc/apt/sources.list \
+    && sed -i '/buster-updates/d' /etc/apt/sources.list \
+    && echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid-until
 COPY dependencies.sh .
 RUN apt-get update \
     && apt-get install curl -y \
