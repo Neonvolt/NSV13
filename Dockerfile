@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM beestation/byond:515.1633 as base
+FROM beestation/byond:515.1647 as base
 
 # Install the tools needed to compile our rust dependencies
 FROM base as rust-build
@@ -8,11 +8,11 @@ ENV PKG_CONFIG_ALLOW_CROSS=1 \
     PATH=/usr/local/cargo/bin:$PATH
 WORKDIR /build
 COPY dependencies.sh .
-RUN sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' /etc/apt/sources.list \
-    && sed -i 's|http://\(deb\|security\).debian.org/debian-security|http://archive.debian.org/debian-security|g' /etc/apt/sources.list \
-    && sed -i '/buster-updates/d' /etc/apt/sources.list \
-    && echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid-until \
-    && dpkg --add-architecture i386 \
+# RUN sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' /etc/apt/sources.list \
+#     && sed -i 's|http://\(deb\|security\).debian.org/debian-security|http://archive.debian.org/debian-security|g' /etc/apt/sources.list \
+#     && sed -i '/buster-updates/d' /etc/apt/sources.list \
+#     && echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid-until \
+RUN dpkg --add-architecture i386 \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
     curl ca-certificates gcc-multilib \
@@ -25,12 +25,12 @@ RUN sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' /
 # Build rust-g
 FROM rust-build as rustg
 RUN git init \
-    && git remote add origin https://github.com/BeeStation/rust-g \
+    && git remote add origin https://github.com/tgstation/rust-g \
     && /bin/bash -c "source dependencies.sh \
     && git fetch --depth 1 origin \$RUST_G_VERSION" \
     && git checkout FETCH_HEAD \
-    && sed -i 's/time = "0.3.31"/time = { version = "0.3.36", features = ["serde"] }/' Cargo.toml \
-    && cargo build --release --all-features --target i686-unknown-linux-gnu
+    # && sed -i 's/time = "0.3.31"/time = { version = "0.3.36", features = ["serde"] }/' Cargo.toml \
+    && cargo build --release --target i686-unknown-linux-gnu
 
 # Build auxmos
 # NSV13 - different fork and katmos hooks
@@ -44,10 +44,10 @@ RUN git init \
 
 # Install nodejs which is required to deploy BeeStation
 FROM base as node
-RUN sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' /etc/apt/sources.list \
-    && sed -i 's|http://\(deb\|security\).debian.org/debian-security|http://archive.debian.org/debian-security|g' /etc/apt/sources.list \
-    && sed -i '/buster-updates/d' /etc/apt/sources.list \
-    && echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid-until
+# RUN sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' /etc/apt/sources.list \
+#     && sed -i 's|http://\(deb\|security\).debian.org/debian-security|http://archive.debian.org/debian-security|g' /etc/apt/sources.list \
+#     && sed -i '/buster-updates/d' /etc/apt/sources.list \
+#     && echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid-until
 COPY dependencies.sh .
 RUN apt-get update \
     && apt-get install curl -y \
@@ -72,5 +72,5 @@ WORKDIR /beestation
 COPY --from=dm-build /deploy ./
 COPY --from=rustg /build/target/i686-unknown-linux-gnu/release/librust_g.so /root/.byond/bin/rust_g
 VOLUME [ "/beestation/config", "/beestation/data" ]
-ENTRYPOINT [ "DreamDaemon", "nsv13.dmb", "-port", "1337", "-trusted", "-close", "-verbose" ]
+ENTRYPOINT [ "DreamDaemon", "nsv13.dmb", "-port", "1337", "-trusted", "-verbose", "-invisible" ]
 EXPOSE 1337
