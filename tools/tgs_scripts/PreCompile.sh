@@ -46,7 +46,7 @@ if ! ( [ -x "$has_git" ] && [ -x "$has_grep" ] && [ -f "/usr/lib/i386-linux-gnu/
 fi
 dpkg --add-architecture i386
 apt-get update
-apt-get install -y lib32z1 pkg-config libssl-dev:i386 libssl-dev libssl3:i386 libclang-dev
+apt-get install -y lib32z1 pkg-config libssl-dev:i386 libssl-dev libssl1.1:i386
 # update rust-g
 if [ ! -d "rust-g" ]; then
 	echo "Cloning rust-g..."
@@ -62,7 +62,6 @@ fi
 
 echo "Deploying rust-g..."
 git checkout "$RUST_G_VERSION"
-env PKG_CONFIG_ALLOW_CROSS=1 ~/.cargo/bin/cargo  update -p time --precise 0.3.36
 env PKG_CONFIG_ALLOW_CROSS=1 ~/.cargo/bin/cargo build --release --target=i686-unknown-linux-gnu
 mv target/i686-unknown-linux-gnu/release/librust_g.so "$1/librust_g.so"
 cd ..
@@ -70,7 +69,6 @@ cd ..
 # get dependencies for auxtools
 # I left a few potentially extraneous ones in momentarily due to an inability to test on a linux host at the moment.
 apt-get install -y cmake build-essential gcc-multilib g++-multilib cmake wget
-apt-get install -y nodejs npm
 
 # update auxmos
 if [ ! -d "auxmos" ]; then
@@ -90,7 +88,7 @@ if [ -d "build" ]; then
 	rm -R build
 fi
 # NSV13 - changed to katmos
-~/.cargo/bin/cargo rustc --target=i686-unknown-linux-gnu --release --features katmos -- -C target-cpu=native
+cargo rustc --target=i686-unknown-linux-gnu --release --features katmos -- -C target-cpu=native
 mv -f target/i686-unknown-linux-gnu/release/libauxmos.so "$1/libauxmos.so"
 cd ../../..
 
@@ -103,14 +101,14 @@ if ! [ -x "$has_youtubedl" ]; then
 	else
 		sudo apt-get install -y python3 python3-pip
 	fi
-	pip3 install youtube-dl --break-system-packages
+	pip3 install youtube-dl
 elif [ -x "$has_pip3" ]; then
 	echo "Ensuring youtube-dl is up-to-date with pip3..."
-	pip3 install youtube-dl -U --break-system-packages
+	pip3 install youtube-dl -U
 fi
 
 # compile tgui
 echo "Compiling tgui..."
 cd "$1"
 chmod +x tools/bootstrap/node  # Workaround for https://github.com/tgstation/tgstation-server/issues/1167
-env TG_BOOTSTRAP_CACHE="$original_dir" CBT_BUILD_MODE="TGS" tools/bootstrap/node tools/build/build.js
+env TG_BOOTSTRAP_CACHE="$original_dir" TG_BOOTSTRAP_NODE_LINUX=1 CBT_BUILD_MODE="TGS" tools/bootstrap/node tools/build/build.js
