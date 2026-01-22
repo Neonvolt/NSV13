@@ -11,7 +11,7 @@ export BYOND_MINOR=1633
 export RUST_VERSION=1.70
 
 #rust_g git tag
-export RUST_G_VERSION=3.1.3
+export RUST_G_VERSION=3.8.0
 
 #node version
 export NODE_VERSION=18
@@ -21,7 +21,7 @@ export NODE_VERSION_PRECISE=18.14.2
 export SPACEMAN_DMM_VERSION=suite-1.8
 
 #auxmos version
-export AUXMOS_VERSION=v2.5.2-b
+export AUXMOS_VERSION=v2.5.2-c
 
 # Python version for mapmerge and other tools
 export PYTHON_VERSION=3.11.2
