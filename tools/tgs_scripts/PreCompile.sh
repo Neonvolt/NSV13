@@ -60,13 +60,15 @@ fi
 
 echo "Deploying rust-g..."
 git checkout "$RUST_G_VERSION"
+#~/.cargo/bin/cargo update -p time --precise 0.3.36
 env PKG_CONFIG_ALLOW_CROSS=1 ~/.cargo/bin/cargo build --ignore-rust-version --release --target=i686-unknown-linux-gnu
 mv target/i686-unknown-linux-gnu/release/librust_g.so "$1/librust_g.so"
 cd ..
 
 # get dependencies for auxtools
 # I left a few potentially extraneous ones in momentarily due to an inability to test on a linux host at the moment.
-apt-get install -y cmake build-essential gcc-multilib g++-multilib cmake wget
+#apt-get install -y cmake build-essential gcc-multilib g++-multilib wget
+apt-get install -y build-essential gcc-multilib g++-multilib
 
 # update auxmos
 if [ ! -d "auxmos" ]; then
@@ -86,7 +88,7 @@ if [ -d "build" ]; then
 	rm -R build
 fi
 # NSV13 - changed to katmos
-~/.cargo/bin/cargo rustc --target=i686-unknown-linux-gnu --release --features "katmos citadel_reactions" -- -C target-cpu=native
+~/.cargo/bin/cargo rustc --target=i686-unknown-linux-gnu --release --features "katmos" -- -C target-cpu=native
 mv -f target/i686-unknown-linux-gnu/release/libauxmos.so "$1/libauxmos.so"
 cd ../../..
 
@@ -108,4 +110,6 @@ fi
 # compile tgui
 echo "Compiling tgui..."
 cd "$1"
+curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash -
+apt-get install nodejs
 env TG_BOOTSTRAP_CACHE="$original_dir" CBT_BUILD_MODE="TGS" tools/bootstrap/node tools/build/build.js
