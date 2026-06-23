@@ -11,3 +11,10 @@
 ###############################################################################################
 
 Neonvolt = Host
+Burbonchik = Admin
+Guared1365 = Admin
+Mr_DarkBladeS = Admin
+Smailfeed = Admin
+Xomel = Admin
+Maekogreenfield = Admin
+Chichmuch = Admin

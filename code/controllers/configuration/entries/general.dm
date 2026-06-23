@@ -217,9 +217,6 @@
 /datum/config_entry/string/wikiurl
 	config_entry_value = "https://nsv.beestation13.com/wiki" //NSV13 - Fixes the damn wiki books
 
-/datum/config_entry/string/forumurl
-	config_entry_value = "https://forums-nsv.beestation13.com/"
-
 /datum/config_entry/string/rulesurl
 	config_entry_value = "https://nsv.beestation13.com/wiki/Rules"
 
@@ -229,10 +226,10 @@
 /datum/config_entry/string/issue_label
 
 /datum/config_entry/string/donateurl
-	config_entry_value = "https://www.patreon.com/user?u=10639001"
+	config_entry_value = "https://boosty.to/celadon"
 
 /datum/config_entry/string/discordurl
-	config_entry_value = "https://nsv.beestation13.com/discord"
+	config_entry_value = "https://discord.com/invite/rxsggTJzY3"
 //NSV13 changes end
 
 /datum/config_entry/string/roundstatsurl

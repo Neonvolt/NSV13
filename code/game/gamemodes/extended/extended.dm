@@ -25,12 +25,13 @@
 	return "The transmission mostly failed to mention your sector. It is possible that there is nothing in the Syndicate that could threaten your station during this shift."
 
 /datum/game_mode/extended/generate_station_goals()
-	if(secret)
-		return ..()
-	for(var/T in subtypesof(/datum/station_goal))
-		var/datum/station_goal/G = new T
-		station_goals += G
-		G.on_report()
+//	if(secret)
+//		return ..()
+//	for(var/T in subtypesof(/datum/station_goal))
+//		var/datum/station_goal/G = new T
+//		station_goals += G
+//		G.on_report()
+	return ..()
 
 /datum/game_mode/extended/announced/send_intercept()
 	var/greenshift_message = "Thanks to the tireless efforts of our security and intelligence divisions, there are currently no credible threats to [station_name()]. All station construction projects have been authorized. Have a secure shift!"

@@ -91,7 +91,7 @@ ALERT_DELTA DANGER: DANGER: The automatic destruct sequence is now activated. Th
 ## GAME MODES ###
 
 #Set the Master (Default) Game Mode.
-MASTER_MODE secret
+MASTER_MODE extended
 
 ## Uncomment to not send a roundstart intercept report. Gamemodes may override this.
 NO_INTERCEPT_REPORT
@@ -199,9 +199,6 @@ MAX_POP TRAITOR -1
 ## NSV13 - minimum number of ready players to enable traitor objectives where murder is reasonable/expected
 MIN_POP_KILL_OBJECTIVES 11
 
-## NSV13 - minimum pop of ready players if preround, or total joins if midround, for AIs to be able to become a traitor in that game mode
-AI_TRAITOR_MIN_PLAYERS 20
-
 MIN_POP TRAITORBRO 10
 MAX_POP TRAITORBRO -1
 
@@ -288,7 +285,7 @@ PROTECT_ROLES_FROM_ANTAGONIST
 PROTECT_HEADS_FROM_ANTAGONIST
 
 ## If non-human species are barred from joining as a head of staff
-ENFORCE_HUMAN_AUTHORITY
+#ENFORCE_HUMAN_AUTHORITY
 
 ## If late-joining players have a chance to become a traitor/changeling
 #ALLOW_LATEJOIN_ANTAGONISTS
@@ -665,7 +662,7 @@ DONATOR_ITEMS
 SPARE_ENFORCE_COC
 
 ## NSV13 Do we want the game to save the starmap at the end of the round?
-STARMAP_PERSISTENCE_ENABLED
+#STARMAP_PERSISTENCE_ENABLED
 
 ## Uncomment to disable local bans, effectively enforcing only global bans
 DISABLE_LOCAL_BANS

@@ -26,7 +26,7 @@ $include interviews.txt
 # There are various options which are hard-locked for security reasons.
 
 ## Server name: This appears at the top of the screen in-game and in the BYOND hub. Uncomment and replace 'beestation' with the name of your choice.
-@SERVERNAME (Unofficial) SS1984 NSV13 Playtest
+@SERVERNAME [RU][MRP] Celadon NSV13 Weekend Session
 
 ## Server SQL name: This is the name used to identify the server to the SQL DB, distinct from SERVERNAME as it must be at most 32 characters.
 @SERVERSQLNAME nsv13
@@ -35,13 +35,13 @@ $include interviews.txt
 #STATIONNAME [DEBUGGING TOOLS ENABLED] NSV Not Production Ready
 
 ## Put on byond hub: Uncomment this to put your server on the byond hub.
-#HUB
+HUB
 
 ## Lobby time: This is the amount of time between rounds that players have to setup their characters and be ready.
 LOBBY_COUNTDOWN 360
 
 ## Round End Time: This is the amount of time after the round ends that players have to murder death kill each other.
-ROUND_END_COUNTDOWN 90
+ROUND_END_COUNTDOWN 120
 
 ## Uncomment this if you want to use the Discord webhook handler
 #USING_DISCORD
@@ -213,13 +213,13 @@ VOTE_PERIOD 600
 DEFAULT_NO_VOTE
 
 ## disable abandon mob
-NORESPAWN
+#NORESPAWN
 
 ## disables calling del(src) on newmobs if they logout before spawnin in
 # DONT_DEL_NEWMOB
 
 ## set a hosted by name for unix platforms
-HOSTEDBY Crossedfall
+HOSTEDBY Neonvolt
 
 ## Set to jobban "Guest-" accounts from Captain, HoS, HoP, CE, RD, CMO, Warden, Security, Detective, and AI positions.
 ## Set to 1 to jobban them from those positions, set to 0 to allow them.
@@ -229,7 +229,7 @@ HOSTEDBY Crossedfall
 GUEST_BAN
 
 ## Comment this out to disable checking for the cid randomizer dll. (disabled if database isn't enabled or connected)
-CHECK_RANDOMIZER
+#CHECK_RANDOMIZER
 
 ## IPINTEL:
 ## This allows you to detect likely proxies by checking ips against getipintel.net
@@ -262,9 +262,6 @@ CHECK_RANDOMIZER
 ## Don't set this to the same server, BYOND will automatically restart players to the server when it has restarted.
 #SERVER NULL
 
-## forum address
-FORUMURL https://forums-nsv.beestation13.com/
-
 ## Wiki address
 WIKIURL https://nsv.beestation13.com/wiki
 
@@ -278,10 +275,10 @@ GITHUBURL https://github.com/BeeStation/NSV13
 ISSUE_LABEL Ingame Issue Report
 
 ## Donation URL
-DONATEURL https://www.patreon.com/user?u=10639001
+DONATEURL https://boosty.to/celadon
 
 ## Discord Invite
-DISCORDURL https://nsv.beestation13.com/discord
+DISCORDURL https://discord.com/invite/rxsggTJzY3
 
 ## Round specific stats address
 ## Link to round specific parsed logs; IE statbus. It is appended with the RoundID automatically by ticker/Reboot()
@@ -300,7 +297,7 @@ DISCORDURL https://nsv.beestation13.com/discord
 GITHUBREPOID 199051995
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
-BANAPPEALS https://forums-nsv.beestation13.com/c/administration/ban-appeals/6
+BANAPPEALS https://discord.com/invite/rxsggTJzY3
 
 ## System command that invokes youtube-dl, used by Play Internet Sound.
 ## You can install youtube-dl with
@@ -427,7 +424,7 @@ ANNOUNCE_ADMIN_LOGIN
 
 ## Map rotation
 ## You should edit maps.txt to match your configuration when you enable this.
-MAPROTATION
+#MAPROTATION
 
 ## Map voting
 ## Allows players to vote for their preffered map
@@ -435,7 +432,7 @@ MAPROTATION
 PREFERENCE_MAP_VOTING 1
 
 ## Starts a map vote at the end of rounds
-AUTOMAPVOTE
+#AUTOMAPVOTE
 
 ## Sets a minimum round length (in minutes) before a map vote will be called to discourage players from forcing early round ends just to change map
 ## Set to 0 to disable.

@@ -19,6 +19,7 @@ map tycoon
 endmap
 
 map atlas
+	default
 	votable
 endmap
 
@@ -29,7 +30,6 @@ map aetherwhisp
 endmap
 
 map eclipse
-	default
 	maxplayers 10
 	votable
 endmap
