@@ -67,7 +67,6 @@ cd ..
 
 # get dependencies for auxtools
 # I left a few potentially extraneous ones in momentarily due to an inability to test on a linux host at the moment.
-#apt-get install -y cmake build-essential gcc-multilib g++-multilib wget
 apt-get install -y build-essential gcc-multilib g++-multilib
 
 # update auxmos
@@ -88,7 +87,7 @@ if [ -d "build" ]; then
 	rm -R build
 fi
 # NSV13 - changed to katmos
-~/.cargo/bin/cargo rustc --target=i686-unknown-linux-gnu --release --features "katmos" -- -C target-cpu=native
+~/.cargo/bin/cargo rustc --target=i686-unknown-linux-gnu --release --features "katmos citadel_reactions" -- -C target-cpu=native
 mv -f target/i686-unknown-linux-gnu/release/libauxmos.so "$1/libauxmos.so"
 cd ../../..
 
