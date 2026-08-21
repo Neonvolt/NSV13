@@ -209,17 +209,17 @@
 	icon = 'nsv13/icons/overmap/new/solgov/dullahan.dmi'
 	icon_state = "frigate"
 	mass = MASS_MEDIUM_SMALL
-	sprite_size = 64
+	sprite_size = 96
 	// damage_states = TRUE
-	bound_width = 64
-	bound_height = 64
+	bound_width = 48
+	bound_height = 96
 	obj_integrity = 500
 	max_integrity = 500
 	armor = list("overmap_light" = 90, "overmap_medium" = 30, "overmap_heavy" = 10)
 
 /obj/structure/overmap/nanotrasen/solgov/dullahan/starter
 	role = MAIN_OVERMAP
-	obj_integrity = 700
-	max_integrity = 700
+	obj_integrity = 800
+	max_integrity = 800
 	starting_system = "Staging"
-	armor = list("overmap_light" = 90, "overmap_medium" = 50, "overmap_heavy" = 25)
+	armor = list("overmap_light" = 95, "overmap_medium" = 60, "overmap_heavy" = 40)
