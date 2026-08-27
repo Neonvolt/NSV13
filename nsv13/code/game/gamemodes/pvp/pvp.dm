@@ -13,8 +13,8 @@ GLOBAL_LIST_EMPTY(syndi_crew_leader_spawns)
 	config_tag = "pvp"
 	report_type = "pvp"
 	false_report_weight = 10
-	required_players = 24 //40 // 40 to make 20 v 20
-	required_enemies = 12 //20
+	required_players = 0 //40 // 40 to make 20 v 20
+	required_enemies = 0 //20
 	recommended_enemies = 15
 	role_preference = /datum/role_preference/antagonist/pvp
 	antag_datum = /datum/antagonist/nukeop/syndi_crew
@@ -25,8 +25,6 @@ GLOBAL_LIST_EMPTY(syndi_crew_leader_spawns)
 	<span class='notice'>Crew</span>: Destroy the Syndicate crew, and defeat any Syndicate reinforcements that appear.</span>"
 
 	title_icon = "conquest"
-
-	var/list/pre_nukeops = list()
 
 	var/nukes_left = 1
 
@@ -39,11 +37,6 @@ GLOBAL_LIST_EMPTY(syndi_crew_leader_spawns)
 	var/list/jobs = list()
 	var/overflow_role = CONQUEST_ROLE_GRUNT
 	var/time_limit = 2 HOURS + 30 MINUTES //How long do you want the mode to run for? This is capped to keep it from dragging on or OOMing
-	var/list/maps = list(
-		list(path = "hammurabiPVP.json", pop = list(0, 30)),
-		list(path = "astraeusPVP.json", pop = list(31, 39)),
-		list(path = "babylonPVP.json", pop = list(40, INFINITY))
-		) //Basic list of maps. Tell me (Kmc) to improve this if you decide you want to add more than 1 PVP map and i'll make it use JSON instead. ~Kmc 23/02/2021 I got called a lazy hack so I went and did this properly :(
 	var/obj/structure/overmap/syndiship = null
 	var/end_on_team_death = FALSE //Should the round end when the syndies die?
 
@@ -53,74 +46,22 @@ Method to spawn in the Syndi ship on a brand new Z-level with the "boardable" tr
 
 */
 
-/datum/game_mode/pvp/proc/assign_jobs()
-	//Now divvy up the roles! We have certain ones we _must_ fill, and others we'd _like_ to fill.
-	var/list/autofill_victims = list()
-	//Round 1: Try assign people to their ideal roles.
-	for(var/datum/mind/nextCrewman in pre_nukeops)
-		var/preferred_job = nextCrewman.current.client.prefs.preferred_syndie_role
-		//Order of conquest_role_handler.roles is in descending for priority.
-		var/datum/syndicate_crew_role/idealRole = GLOB.conquest_role_handler.get_job(preferred_job)
-		//This job's filled up, OR they've picked the overflow role, which means they don't really care, so we autofill them!
-		if(!idealRole || idealRole.max_count == INFINITY || !idealRole.assign(nextCrewman))
-			autofill_victims += nextCrewman
-			continue
-
-	var/datum/syndicate_crew_role/overflow = GLOB.conquest_role_handler.get_job(overflow_role)
-	//Round 2: now dish out roles to those unlucky enough to not get their preference.
-	for(var/datum/mind/autofill in autofill_victims)
-		//Find the next un-filled job in order of priority.
-		var/foundJob = FALSE
-		for(var/datum/syndicate_crew_role/nextRole in GLOB.conquest_role_handler.roles)
-			if(!nextRole.essential) //We don't forcibly fill opt in, non-essential roles.
-				continue
-			if(nextRole.assign(autofill))
-				//Cool, we've found a target!
-				to_chat(autofill, "<span class='warning'>You have been autofilled into [nextRole]! If you're not comfortable playing this role due to inexperience, please ahelp!")
-				foundJob = TRUE
-				break
-
-		if(!foundJob) //No job? Fallback time.
-			overflow.assign(autofill)
-
-
 /datum/game_mode/pvp/pre_setup()
-	var/n_agents = antag_candidates.len
 	if(!syndiship)
 		//syndiship = instance_overmap(_path=ship_type, folder= "map_files/Instanced/map_files" ,interior_map_files = map_file, midround=TRUE)
-		//Pick a map! any map... (based on pop)
-		var/list/possible = list()
-		for(var/list/data in maps)
-			var/list/pop = data["pop"] //Linters :vomit:
-			//Check the bounds of the map.
-			if(num_players() < pop[1] || num_players() > pop[2])
-				continue
-			possible += data["path"]
 
-		var/ship_file = file("_maps/map_files/Instanced/[pick(possible)]")
+		var/ship_file = file("_maps/map_files/Instanced/hammurabiPVP.json")
 		if(!isfile(ship_file)) //Why would this ever happen? Who knows, I sure don't.
 			message_admins("ERROR SETTING UP PVP: Invalid json file [ship_file]. Tell a coder to fix this.")
 			CRASH("Invalid json file \"[ship_file]\" tried to load in PVP setup.")
 		syndiship = instance_ship_from_json(ship_file)
 
-	if(n_agents > 0)
-		//Registers two signals to check either ship as being destroyed.
-		RegisterSignal(syndiship, COMSIG_PARENT_QDELETING, PROC_REF(force_loss))
-		RegisterSignal(SSstar_system.find_main_overmap(), COMSIG_PARENT_QDELETING, PROC_REF(force_win))
-		SSovermap_mode.mode = new/datum/overmap_gamemode/galactic_conquest //Change the overmap gamemode
-		message_admins("Galactic Conquest in progress. Overmap gamemode is now [SSovermap_mode.mode.name]")
-		var/enemies_to_spawn = max(1, round(num_players()/2.5)) //Syndicates scale with pop. On a standard 30 pop, this'll be 30 - 10 -> 20 / 10 -> 2 floored = 2, where FLOOR rounds the number to a whole number.
-		for(var/i = 0, i < enemies_to_spawn, i++)
-			var/datum/mind/new_op = pick_n_take(antag_candidates)
-			pre_nukeops += new_op
-			new_op.assigned_role = "Syndicate crewmember"
-			new_op.special_role = "Syndicate crewmember"
-			log_game("[key_name(new_op)] has been selected as a syndicate crewmember!")
-		return TRUE
-	else
-		qdel(syndiship)
-		setup_error = "Not enough syndicate crew candidates"
-		return FALSE
+	//Registers two signals to check either ship as being destroyed.
+	RegisterSignal(syndiship, COMSIG_PARENT_QDELETING, PROC_REF(force_loss))
+	RegisterSignal(SSstar_system.find_main_overmap(), COMSIG_PARENT_QDELETING, PROC_REF(force_win))
+	SSovermap_mode.mode = new/datum/overmap_gamemode/galactic_conquest //Change the overmap gamemode
+	message_admins("Galactic Conquest in progress. Overmap gamemode is now [SSovermap_mode.mode.name]")
+	return TRUE
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
 /proc/overmap_lighting_force(obj/structure/overmap/hammurabi)
@@ -129,13 +70,12 @@ Method to spawn in the Syndi ship on a brand new Z-level with the "boardable" tr
 		AR.set_dynamic_lighting(DYNAMIC_LIGHTING_FORCED)
 
 /datum/game_mode/pvp/post_setup()
-	assign_jobs()
 	SSstar_system.time_limit = world.time + time_limit //Hard timecap to prevent this dragging on or crashing.
 	//And now, we make it so that NT sends fleets instead of the Syndicate...
 	var/datum/faction/synd = SSstar_system.faction_by_id(FACTION_ID_SYNDICATE)
 	var/datum/faction/nt = SSstar_system.faction_by_id(FACTION_ID_NT)
+	synd.fleet_spawn_rate = 1 HOURS
 	nt.fleet_spawn_rate = synd.fleet_spawn_rate
-	synd.fleet_spawn_rate = 2 HOURS
 	SSshuttle.registerHostileEnvironment(src)//Evac is disallowed
 	return ..()
 
