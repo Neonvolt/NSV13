@@ -182,6 +182,9 @@ Technically zero are needed, but those manually set are immune to deletion from 
 	armor = list("overmap_light" = 95, "overmap_medium" = 50, "overmap_heavy" = 10)
 	overmap_deletion_traits = DAMAGE_STARTS_COUNTDOWN
 
+/obj/structure/overmap/nanotrasen/light_cruiser/starter/secondary // Eclipse version meant for COOP
+	role = MAIN_MINING_SHIP
+
 /obj/structure/overmap/nanotrasen/light_cruiser/starter/apply_weapons()
 	new /datum/overmap_ship_weapon/mac(src, FALSE)
 	new /datum/overmap_ship_weapon/pdc_mount(src, FALSE)

@@ -77,6 +77,11 @@ map Vago
 #	votable
 endmap
 
+map atlas_coop
+	minplayers 15
+endmap
+
+
 #BEGIN DEBUG MAPS
 
 #map testship
