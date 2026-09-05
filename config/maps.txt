@@ -18,6 +18,10 @@ map tycoon
 	votable
 endmap
 
+map dullahan
+	votable
+endmap
+
 map atlas
 	default
 	votable
