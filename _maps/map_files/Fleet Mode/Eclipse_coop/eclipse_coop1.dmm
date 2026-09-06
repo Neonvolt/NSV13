@@ -72,7 +72,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/runway/delay5,
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/nsv/hanger/mining)
 "at" = (
 /obj/machinery/airalarm/directional/west,
 /obj/structure/cable/yellow{
@@ -174,13 +174,17 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "aQ" = (
 /obj/structure/table_frame,
 /turf/open/floor/plasteel/dark/side{
 	dir = 1
 	},
 /area/hallway/secondary/construction)
+"aS" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating/airless,
+/area/nsv/hanger/storage)
 "aZ" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -192,7 +196,7 @@
 /area/crew_quarters/dorms/nsv/dorms_2)
 "bb" = (
 /turf/open/floor/monotile/dark,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "bc" = (
 /turf/open/floor/plasteel/dark/side{
 	dir = 6
@@ -279,7 +283,7 @@
 /obj/effect/turf_decal/loading_area,
 /obj/machinery/advanced_airlock_controller/directional/west,
 /turf/open/floor/monotile/dark,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "bt" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -326,7 +330,7 @@
 	req_one_access_txt = "150"
 	},
 /turf/open/floor/monotile/steel,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "bH" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
 	dir = 4
@@ -358,6 +362,13 @@
 	dir = 4
 	},
 /area/nsv/weapons/fore)
+"bL" = (
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/auto_name/east,
+/turf/open/floor/monotile/steel,
+/area/engine/gravity_generator)
 "bM" = (
 /obj/structure/window/plasma/reinforced{
 	dir = 1
@@ -381,6 +392,9 @@
 /obj/effect/turf_decal/box,
 /turf/open/floor/engine,
 /area/engine/atmos)
+"bQ" = (
+/turf/closed/wall/r_wall,
+/area/nsv/hanger/storage)
 "bR" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -412,7 +426,7 @@
 	},
 /obj/structure/plasticflaps,
 /turf/open/floor/monotile/steel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "bW" = (
 /obj/machinery/atmospherics/pipe/simple/yellow/visible/layer4{
 	dir = 10
@@ -436,7 +450,7 @@
 	dir = 8
 	},
 /turf/open/floor/monotile/dark,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "cf" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating/airless,
@@ -483,7 +497,7 @@
 /turf/open/floor/plasteel/techmaint{
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "cA" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -595,6 +609,9 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"dq" = (
+/turf/open/floor/monotile/dark,
+/area/engine/gravity_generator)
 "dw" = (
 /turf/open/space/basic,
 /area/crew_quarters/bar)
@@ -605,7 +622,7 @@
 /turf/open/floor/plasteel/techmaint{
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "dA" = (
 /obj/machinery/vendor/mining,
 /obj/machinery/light{
@@ -849,7 +866,7 @@
 /obj/structure/hull_plate,
 /obj/effect/turf_decal/delivery,
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/nsv/hanger/mining)
 "eG" = (
 /turf/open/space/basic,
 /area/nsv/weapons/fore)
@@ -862,7 +879,7 @@
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
 /turf/open/floor/monotile/dark,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "eL" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 5
@@ -942,9 +959,11 @@
 	},
 /area/hallway/primary/fore)
 "fb" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating/airless,
-/area/hallway/primary/aft)
+/obj/structure/shuttle/engine/heater{
+	dir = 8
+	},
+/turf/closed/wall/r_wall,
+/area/engine/gravity_generator)
 "fc" = (
 /obj/machinery/camera/autoname{
 	dir = 8
@@ -952,7 +971,7 @@
 /obj/structure/ore_box,
 /obj/effect/turf_decal/box,
 /turf/open/floor/monotile/steel,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "fd" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
@@ -967,6 +986,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/open/floor/monotile/dark,
 /area/hallway/primary/aft)
@@ -1040,7 +1062,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/runway/delay3,
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/nsv/hanger/mining)
 "fq" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -1129,6 +1151,12 @@
 	},
 /turf/open/floor/carpet/ship/beige_carpet,
 /area/crew_quarters/dorms/nsv/dorms_2)
+"fF" = (
+/obj/effect/turf_decal/box/corners{
+	dir = 4
+	},
+/turf/open/floor/monotile/dark,
+/area/engine/gravity_generator)
 "fH" = (
 /obj/machinery/power/apc/auto_name/east,
 /obj/structure/cable{
@@ -1523,10 +1551,11 @@
 /obj/structure/chair/fancy/bench/right{
 	dir = 4
 	},
+/obj/machinery/power/apc/auto_name/east,
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "ht" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
@@ -1603,7 +1632,7 @@
 	dir = 4
 	},
 /turf/open/floor/monotile/steel,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "hK" = (
 /obj/machinery/power/smes/engineering,
 /obj/structure/cable{
@@ -1747,6 +1776,7 @@
 /area/crew_quarters/dorms)
 "ip" = (
 /obj/effect/turf_decal/caution/stand_clear,
+/obj/effect/turf_decal/box,
 /turf/open/floor/plasteel/dark/side,
 /area/hallway/secondary/entry)
 "iq" = (
@@ -1872,7 +1902,7 @@
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "iI" = (
 /obj/machinery/computer/ship/helm{
 	dir = 8;
@@ -1957,7 +1987,7 @@
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "iT" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1972,7 +2002,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/ridged/steel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "iV" = (
 /obj/machinery/hydroponics/constructable,
 /obj/machinery/light{
@@ -2003,7 +2033,7 @@
 	},
 /obj/machinery/holopad,
 /turf/open/floor/plasteel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "jc" = (
 /obj/structure/closet/crate,
 /obj/item/stack/sheet/iron/ten,
@@ -2118,13 +2148,16 @@
 	dir = 4;
 	name = "Science Lab"
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/open/floor/plasteel,
-/area/hallway/primary/aft)
+/area/engine/gravity_generator)
 "jz" = (
 /obj/structure/lattice,
 /obj/structure/hull_plate,
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/nsv/hanger/mining)
 "jA" = (
 /obj/effect/turf_decal/ship/techfloor{
 	dir = 1
@@ -2160,7 +2193,7 @@
 "jE" = (
 /obj/structure/table,
 /turf/open/floor/plasteel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "jF" = (
 /obj/structure/rack,
 /obj/item/pickaxe,
@@ -2201,7 +2234,7 @@
 "jV" = (
 /obj/structure/hull_plate,
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/nsv/hanger/mining)
 "jW" = (
 /obj/effect/spawner/lootdrop/two_percent_xeno_egg_spawner,
 /turf/open/floor/plating,
@@ -2210,7 +2243,7 @@
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "kd" = (
 /obj/machinery/vending/engivend,
 /turf/open/floor/plasteel,
@@ -2328,6 +2361,13 @@
 	},
 /turf/open/floor/carpet/ship/beige_carpet,
 /area/crew_quarters/dorms)
+"kv" = (
+/obj/machinery/gravity_generator/main/station,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/open/floor/monotile/dark,
+/area/engine/gravity_generator)
 "kw" = (
 /turf/closed/wall/r_wall,
 /area/space/nearstation)
@@ -2346,7 +2386,7 @@
 /turf/open/floor/plasteel/techmaint{
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "kB" = (
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 45
@@ -2386,7 +2426,7 @@
 	dir = 8
 	},
 /turf/open/floor/monotile/steel,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "kJ" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
@@ -2443,6 +2483,12 @@
 /obj/structure/frame/machine,
 /turf/open/floor/circuit/green/telecomms,
 /area/tcommsat/server)
+"kW" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/open/floor/monotile/steel,
+/area/engine/gravity_generator)
 "kX" = (
 /obj/machinery/door/firedoor/border_only/directional/north,
 /obj/machinery/door/firedoor/border_only/directional/south,
@@ -2501,7 +2547,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "lh" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
@@ -2538,7 +2584,7 @@
 	icon_state = "1-2"
 	},
 /turf/open/floor/plasteel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "ln" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
@@ -2599,7 +2645,7 @@
 	dir = 5
 	},
 /turf/open/floor/plasteel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "lA" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -2899,7 +2945,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/ridged/steel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "mF" = (
 /obj/machinery/door/airlock/ship/hatch,
 /obj/machinery/door/firedoor/border_only/directional/north,
@@ -2973,7 +3019,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/monotile/steel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "mV" = (
 /obj/structure/fluff/divine/nexus{
 	anchored = 0;
@@ -3036,13 +3082,13 @@
 	icon_state = "4-8"
 	},
 /turf/open/floor/plasteel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "ng" = (
 /obj/structure/hull_plate,
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/runway/delay4,
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/nsv/hanger/mining)
 "nh" = (
 /obj/item/trash/can/food/peaches,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3070,6 +3116,10 @@
 	dir = 4
 	},
 /area/crew_quarters/dorms)
+"np" = (
+/obj/structure/lattice/catwalk,
+/turf/open/space/basic,
+/area/nsv/hanger/mining)
 "nq" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
@@ -3119,7 +3169,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "nE" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
@@ -3299,7 +3349,7 @@
 /turf/open/floor/plasteel/techmaint{
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "or" = (
 /turf/open/floor/plasteel/dark/side{
 	dir = 1
@@ -3323,7 +3373,7 @@
 	dir = 4
 	},
 /turf/open/floor/monotile/dark,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "ox" = (
 /obj/machinery/cryopod{
 	dir = 4
@@ -3798,7 +3848,7 @@
 "qK" = (
 /obj/machinery/vending/cola/red,
 /turf/open/floor/plasteel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "qL" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
@@ -3900,6 +3950,12 @@
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"rk" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/open/floor/monotile/steel,
+/area/engine/gravity_generator)
 "rm" = (
 /obj/structure/table/reinforced,
 /obj/machinery/reagentgrinder,
@@ -3911,6 +3967,15 @@
 	},
 /turf/open/floor/plasteel/checker,
 /area/hydroponics)
+"ro" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/open/floor/monotile/steel,
+/area/engine/gravity_generator)
 "rp" = (
 /obj/effect/spawner/lootdrop/maintenance,
 /obj/structure/cable{
@@ -4157,7 +4222,7 @@
 	dir = 1
 	},
 /turf/open/floor/monotile/dark,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "sE" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -4262,7 +4327,7 @@
 /turf/open/floor/plasteel/techmaint{
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "sX" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
 	dir = 4
@@ -4345,7 +4410,7 @@
 	dir = 1
 	},
 /turf/open/floor/monotile/steel,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "to" = (
 /turf/open/floor/carpet/ship/beige_carpet,
 /area/crew_quarters/dorms)
@@ -4556,13 +4621,13 @@
 	dir = 4
 	},
 /turf/open/floor/monotile/dark,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "uh" = (
 /obj/structure/overmap/small_craft/transport/sabre/mining,
 /turf/open/floor/plasteel/techmaint{
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "ul" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -4593,7 +4658,13 @@
 /area/crew_quarters/kitchen)
 "uo" = (
 /turf/closed/wall/r_wall,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
+"up" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/monotile/steel,
+/area/engine/gravity_generator)
 "uq" = (
 /obj/machinery/door/firedoor/border_only/directional/north,
 /obj/machinery/door/firedoor/border_only/directional/south,
@@ -4617,7 +4688,7 @@
 	id = "cargo_load"
 	},
 /turf/open/floor/plasteel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "uu" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
 	dir = 1
@@ -4657,7 +4728,7 @@
 /turf/open/floor/plasteel/techmaint{
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "uF" = (
 /obj/structure/window/plasma/reinforced{
 	dir = 4
@@ -4690,7 +4761,7 @@
 	dir = 8
 	},
 /turf/open/floor/monotile/dark,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "uK" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
@@ -4713,6 +4784,9 @@
 /obj/item/reagent_containers/food/drinks/mug/cocoa,
 /turf/open/floor/monotile/dark,
 /area/nsv/weapons/fore)
+"uM" = (
+/turf/open/floor/monotile/steel,
+/area/engine/gravity_generator)
 "uN" = (
 /obj/machinery/light{
 	dir = 1
@@ -4826,6 +4900,13 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/disposal)
+"vd" = (
+/obj/effect/turf_decal/box/corners,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/open/floor/monotile/dark,
+/area/engine/gravity_generator)
 "vf" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
@@ -4923,7 +5004,7 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/structure/tank_dispenser/oxygen,
 /turf/open/floor/monotile/steel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "vA" = (
 /obj/machinery/firealarm/directional/east,
 /turf/open/floor/plasteel/dark/side{
@@ -5226,7 +5307,7 @@
 /turf/open/floor/plasteel/techmaint{
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "wT" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green{
@@ -5500,8 +5581,8 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
-/turf/open/space/basic,
-/area/science/xenobiology)
+/turf/open/floor/monotile/dark,
+/area/hallway/secondary/exit/departure_lounge)
 "xT" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 9
@@ -5574,7 +5655,7 @@
 	dir = 4
 	},
 /turf/open/floor/monotile/steel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "yE" = (
 /turf/open/floor/plasteel/dark/side,
 /area/crew_quarters/bar)
@@ -5612,6 +5693,10 @@
 	},
 /turf/open/floor/monotile/dark,
 /area/hallway/primary/aft)
+"yJ" = (
+/obj/machinery/door/airlock/ship/hatch,
+/turf/open/floor/plasteel,
+/area/engine/gravity_generator)
 "yM" = (
 /obj/structure/closet/emcloset,
 /turf/open/floor/plasteel,
@@ -5695,9 +5780,15 @@
 /turf/open/floor/monotile/dark,
 /area/nsv/weapons/fore)
 "yV" = (
-/obj/machinery/door/airlock/ship/hatch,
-/turf/open/floor/plasteel,
-/area/hallway/primary/aft)
+/obj/machinery/power/smes{
+	charge = 5e+006
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/structure/cable/yellow,
+/turf/open/floor/monotile/steel,
+/area/engine/gravity_generator)
 "yW" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
 	dir = 4
@@ -5715,11 +5806,11 @@
 /turf/open/floor/plasteel/techmaint{
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "za" = (
 /obj/machinery/computer/shuttle_flight/mining,
 /turf/open/floor/monotile/dark,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "zb" = (
 /obj/structure/railing{
 	dir = 10
@@ -5781,7 +5872,7 @@
 /obj/structure/hull_plate,
 /obj/effect/turf_decal/delivery,
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/nsv/hanger/mining)
 "zr" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -5833,7 +5924,7 @@
 /area/maintenance/department/crew_quarters/bar)
 "zA" = (
 /turf/closed/wall/r_wall,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "zC" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -5851,7 +5942,7 @@
 	dir = 4
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/nsv/hanger/mining)
 "zG" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -5895,7 +5986,7 @@
 /turf/open/floor/plasteel/techmaint{
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "zL" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -5913,7 +6004,7 @@
 	dir = 8
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/nsv/hanger/mining)
 "zN" = (
 /obj/item/trash/chips,
 /turf/open/floor/plasteel/dark,
@@ -5932,7 +6023,7 @@
 	id = "cargo_load"
 	},
 /turf/open/floor/monotile/steel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "zT" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -5946,7 +6037,7 @@
 /obj/structure/ore_box,
 /obj/effect/turf_decal/box,
 /turf/open/floor/monotile/steel,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "zV" = (
 /obj/item/trash/can,
 /turf/open/floor/plasteel/dark/side,
@@ -6071,7 +6162,7 @@
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "Ax" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
 	dir = 4
@@ -6083,7 +6174,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "Az" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
 /turf/open/floor/plasteel/dark/side,
@@ -6159,7 +6250,7 @@
 	dir = 4
 	},
 /turf/open/floor/monotile/dark,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "AY" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
@@ -6589,6 +6680,12 @@
 	},
 /turf/open/floor/plasteel/tiled/light,
 /area/medical/sleeper)
+"Dh" = (
+/obj/effect/turf_decal/box/corners{
+	dir = 1
+	},
+/turf/open/floor/monotile/dark,
+/area/engine/gravity_generator)
 "Di" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 6
@@ -6720,6 +6817,9 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/open/floor/monotile/dark,
 /area/hallway/primary/aft)
 "DI" = (
@@ -6766,7 +6866,7 @@
 	icon_state = "1-4"
 	},
 /turf/open/floor/monotile/dark,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "DR" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -6805,7 +6905,7 @@
 	dir = 8
 	},
 /turf/open/floor/monotile/steel,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "DY" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -6859,7 +6959,7 @@
 /turf/open/floor/plasteel/techmaint{
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "Er" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
@@ -6974,7 +7074,7 @@
 /turf/open/floor/plasteel/techmaint{
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "ER" = (
 /obj/machinery/door/firedoor/border_only/directional/east,
 /obj/machinery/door/firedoor/border_only/directional/west,
@@ -7044,7 +7144,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/ridged/steel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "Fc" = (
 /turf/open/floor/plasteel/dark/side,
 /area/hallway/primary/fore)
@@ -7247,7 +7347,7 @@
 	req_access_txt = 0
 	},
 /turf/open/floor/monotile/dark,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "Ga" = (
 /obj/machinery/cryopod,
 /turf/open/floor/plasteel/dark/side{
@@ -7496,7 +7596,7 @@
 	icon_state = "4-8"
 	},
 /turf/open/floor/monotile/steel,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "GN" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
 	dir = 4
@@ -7560,7 +7660,7 @@
 /obj/machinery/airalarm/directional/north,
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/monotile/steel,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "Hb" = (
 /obj/machinery/vendor/mining,
 /obj/machinery/light,
@@ -7735,11 +7835,11 @@
 	dir = 4
 	},
 /turf/open/floor/monotile/steel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "HP" = (
 /obj/machinery/computer/ship/viewscreen,
 /turf/open/floor/monotile/dark,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "HQ" = (
 /obj/machinery/atmospherics/components/trinary/filter/atmos/o2{
 	dir = 1;
@@ -7781,7 +7881,7 @@
 	dir = 4
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/nsv/hanger/mining)
 "HV" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -7953,7 +8053,7 @@
 	dir = 8
 	},
 /turf/open/floor/monotile/steel,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "II" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -7999,7 +8099,7 @@
 	icon_state = "0-2"
 	},
 /turf/open/floor/monotile/dark,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "IV" = (
 /obj/machinery/cryopod{
 	dir = 4
@@ -8150,12 +8250,12 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "JD" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/runway/delay4,
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/nsv/hanger/mining)
 "JE" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -8235,7 +8335,7 @@
 	icon_state = "1-2"
 	},
 /turf/open/floor/monotile/dark,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "Ka" = (
 /obj/structure/table/reinforced,
 /obj/item/radio{
@@ -8296,7 +8396,7 @@
 	icon_state = "1-2"
 	},
 /turf/open/floor/monotile/dark,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "Kl" = (
 /obj/machinery/vending/hydronutrients,
 /turf/open/floor/plasteel/checker,
@@ -8318,6 +8418,16 @@
 /obj/structure/grille,
 /turf/open/floor/plating,
 /area/maintenance/disposal)
+"Kv" = (
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/airalarm/directional/south,
+/turf/open/floor/monotile/steel,
+/area/engine/gravity_generator)
 "Kz" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 4
@@ -8380,7 +8490,7 @@
 	dir = 1
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/nsv/hanger/mining)
 "KF" = (
 /obj/structure/bed,
 /obj/item/bedsheet/dorms,
@@ -8399,7 +8509,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/ridged/steel,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "KI" = (
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/plasteel/dark/side{
@@ -8438,6 +8548,15 @@
 	},
 /turf/open/floor/noslip/white,
 /area/crew_quarters/toilet/restrooms)
+"KT" = (
+/obj/effect/turf_decal/box/corners{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-4"
+	},
+/turf/open/floor/monotile/dark,
+/area/engine/gravity_generator)
 "KX" = (
 /obj/structure/chair/fancy/sofa/old,
 /obj/effect/landmark/start/shaft_miner,
@@ -8476,7 +8595,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /turf/open/floor/plasteel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "Ll" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/fore)
@@ -8571,7 +8690,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "LK" = (
 /turf/open/floor/plasteel/dark/side{
 	dir = 4
@@ -8601,7 +8720,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/ridged/steel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "LW" = (
 /obj/effect/turf_decal/ship/techfloor/grid{
 	dir = 8
@@ -8710,7 +8829,7 @@
 	icon_state = "4-8"
 	},
 /turf/open/floor/monotile/dark,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "Mo" = (
 /obj/structure/window/plasma/reinforced{
 	dir = 1
@@ -8935,7 +9054,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/ridged/steel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "MX" = (
 /obj/machinery/door/firedoor/border_only/directional/east,
 /obj/machinery/door/firedoor/border_only/directional/west,
@@ -9074,7 +9193,7 @@
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "Nv" = (
 /turf/closed/wall/r_wall,
 /area/hydroponics)
@@ -9086,7 +9205,7 @@
 	},
 /obj/structure/reagent_dispensers/fueltank/cryogenic_fuel,
 /turf/open/floor/monotile/dark,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "Nx" = (
 /obj/structure/table,
 /obj/item/seeds/wheat,
@@ -9108,7 +9227,7 @@
 	},
 /obj/structure/reagent_dispensers/fueltank/cryogenic_fuel,
 /turf/open/floor/monotile/dark,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "NC" = (
 /obj/machinery/atmospherics/pipe/simple/yellow/visible/layer4{
 	dir = 9
@@ -9298,7 +9417,7 @@
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "Oq" = (
 /obj/machinery/light{
 	dir = 4
@@ -9306,7 +9425,7 @@
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "Os" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 8
@@ -9456,7 +9575,7 @@
 	},
 /obj/structure/table,
 /turf/open/floor/plasteel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "Pc" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/structure/cable{
@@ -9470,7 +9589,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "Pf" = (
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/plasteel/dark/side{
@@ -9510,7 +9629,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "Pm" = (
 /obj/structure/fluff/support_beam{
 	color = "#5e5e5c";
@@ -9566,7 +9685,7 @@
 /area/medical/sleeper)
 "Pr" = (
 /turf/open/floor/plasteel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "Pt" = (
 /obj/machinery/seed_extractor,
 /turf/open/floor/plasteel/checker,
@@ -9684,7 +9803,7 @@
 "PZ" = (
 /obj/machinery/vending/snack/green,
 /turf/open/floor/plasteel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "Qa" = (
 /obj/machinery/light{
 	dir = 8
@@ -9705,7 +9824,7 @@
 "Qe" = (
 /obj/machinery/suit_storage_unit/mining/eva,
 /turf/open/floor/monotile/steel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "Qg" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
@@ -9803,7 +9922,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/ridged/steel,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "Qw" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
@@ -9814,10 +9933,10 @@
 	icon_state = "2-4"
 	},
 /turf/open/floor/plasteel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "Qz" = (
 /turf/open/floor/plasteel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "QA" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 6
@@ -9835,7 +9954,7 @@
 	brightness = 3
 	},
 /turf/open/floor/plasteel/ridged/steel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "QF" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -9865,13 +9984,13 @@
 /area/hallway/secondary/entry)
 "QO" = (
 /turf/open/floor/monotile/steel,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "QP" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "QQ" = (
 /obj/structure/table/reinforced,
 /obj/item/kitchen/rollingpin,
@@ -9985,7 +10104,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/runway/delay5,
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/nsv/hanger/mining)
 "Rn" = (
 /obj/structure/mirror,
 /turf/closed/wall/r_wall,
@@ -9999,7 +10118,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "Rr" = (
 /obj/machinery/door/firedoor/border_only/directional/east,
 /obj/machinery/door/firedoor/border_only/directional/west,
@@ -10031,7 +10150,7 @@
 /turf/open/floor/plasteel/techmaint{
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "Ru" = (
 /obj/machinery/vending/hydroseeds,
 /turf/open/floor/plasteel/checker,
@@ -10040,7 +10159,7 @@
 /obj/machinery/airalarm/directional/east,
 /obj/machinery/suit_storage_unit/mining/eva,
 /turf/open/floor/monotile/steel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "Ry" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -10097,7 +10216,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "RS" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -10315,7 +10434,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/runway/delay2,
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/nsv/hanger/mining)
 "SG" = (
 /obj/structure/sign/directions/plaque/engineering{
 	dir = 1;
@@ -10490,8 +10609,8 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
-/turf/open/space/basic,
-/area/science/xenobiology)
+/turf/open/floor/monotile/dark,
+/area/hallway/secondary/exit/departure_lounge)
 "Tg" = (
 /obj/machinery/door/firedoor/border_only/directional/east,
 /obj/machinery/door/firedoor/border_only/directional/west,
@@ -10545,6 +10664,12 @@
 	},
 /turf/open/floor/monotile/dark,
 /area/hallway/primary/central)
+"Tr" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/monotile/steel,
+/area/engine/gravity_generator)
 "Tt" = (
 /obj/structure/grille,
 /turf/open/floor/plating,
@@ -10585,7 +10710,7 @@
 /turf/open/floor/plasteel/techmaint{
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "TG" = (
 /obj/machinery/door/firedoor/border_only/directional/east,
 /obj/machinery/door/firedoor/border_only/directional/west,
@@ -10641,7 +10766,7 @@
 /turf/open/floor/plasteel/techmaint{
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "TS" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -10653,7 +10778,7 @@
 	id = "cargo_load"
 	},
 /turf/open/floor/monotile/steel,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "TX" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
 /turf/open/floor/monotile/steel,
@@ -10804,7 +10929,7 @@
 	},
 /obj/structure/reagent_dispensers/fueltank/cryogenic_fuel,
 /turf/open/floor/monotile/dark,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "UD" = (
 /obj/item/radio/intercom/directional/east,
 /obj/structure/ladder,
@@ -11269,7 +11394,7 @@
 	name = "cargo shutters"
 	},
 /turf/open/floor/plating/airless,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "Wv" = (
 /obj/machinery/door/airlock/ship/hatch{
 	dir = 4
@@ -11361,11 +11486,11 @@
 "WN" = (
 /obj/effect/turf_decal/loading_area,
 /turf/open/floor/monotile/steel,
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "WP" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating/airless,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "WQ" = (
 /obj/structure/sign/directions/plaque/command{
 	dir = 4
@@ -11425,6 +11550,10 @@
 /obj/effect/turf_decal/box,
 /turf/open/floor/monotile/dark,
 /area/maintenance/department/cargo)
+"Xd" = (
+/obj/effect/landmark/event_spawn,
+/turf/open/floor/monotile/dark,
+/area/engine/gravity_generator)
 "Xe" = (
 /obj/structure/fluff/support_beam{
 	color = "#5e5e5c";
@@ -11537,7 +11666,7 @@
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "Xv" = (
 /obj/item/radio/intercom/directional/east,
 /turf/open/floor/plasteel/dark/side{
@@ -11583,7 +11712,7 @@
 	dir = 8
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/nsv/hanger/mining)
 "XU" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/item/powder_bag,
@@ -11635,7 +11764,7 @@
 	dir = 4
 	},
 /turf/open/floor/monotile/dark,
-/area/science/xenobiology)
+/area/hallway/secondary/exit/departure_lounge)
 "XZ" = (
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
@@ -11798,7 +11927,7 @@
 	},
 /obj/machinery/suit_storage_unit/mining/eva,
 /turf/open/floor/monotile/steel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "YN" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
 /obj/machinery/firealarm/directional/north,
@@ -11818,7 +11947,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/ridged/steel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "YP" = (
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -11935,7 +12064,7 @@
 /turf/open/floor/plasteel/techmaint{
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/quartermaster/warehouse)
+/area/nsv/hanger/mining)
 "Zm" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
@@ -12084,7 +12213,7 @@
 "ZS" = (
 /obj/machinery/advanced_airlock_controller/directional/east,
 /turf/open/floor/plasteel/ridged/steel,
-/area/engine/gravity_generator)
+/area/nsv/hanger/storage)
 "ZT" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating/airless,
@@ -29696,12 +29825,12 @@ Lm
 Lm
 MZ
 MZ
-gf
-rK
-gf
-rK
-gf
-gf
+fb
+xc
+fb
+xc
+fb
+fb
 rK
 gf
 rK
@@ -29953,12 +30082,12 @@ Lm
 Lm
 MZ
 MZ
-fb
-Fp
-Fp
-Fp
-Vc
-rK
+nl
+Dh
+dq
+KT
+yV
+xc
 Fp
 Fp
 Fp
@@ -30210,12 +30339,12 @@ tB
 kw
 MZ
 MZ
-fb
-Fp
-Fp
-Fp
-Fp
-yV
+nl
+dq
+Xd
+kv
+Kv
+xc
 Fp
 Fp
 Fp
@@ -30467,12 +30596,12 @@ kw
 kw
 MZ
 MZ
-fb
-Fp
-Fp
-Fp
-Fp
-rK
+nl
+fF
+dq
+vd
+Tr
+xc
 Fp
 Fp
 Fp
@@ -30724,12 +30853,12 @@ kw
 kw
 MZ
 MZ
-fb
-Fp
-Fp
-Fp
-Fp
-rK
+nl
+uM
+kW
+ro
+rk
+yJ
 Fp
 Fp
 Fp
@@ -30981,12 +31110,12 @@ kw
 kw
 MZ
 MZ
-fb
-Fp
-Fp
-xG
-Fp
-rK
+nl
+up
+Tr
+bL
+up
+xc
 Fp
 Fp
 xG
@@ -31238,12 +31367,12 @@ kw
 kw
 MZ
 MZ
-rK
-rK
+xc
+xc
 jy
-rK
-rK
-rK
+xc
+xc
+xc
 Ph
 rK
 rK
@@ -31497,7 +31626,7 @@ MZ
 MZ
 rK
 Wz
-us
+ke
 dc
 fC
 Zx
@@ -36155,9 +36284,9 @@ uo
 uo
 uo
 KD
-XZ
-XZ
-XZ
+np
+np
+np
 SF
 fp
 ng
@@ -38725,9 +38854,9 @@ uo
 uo
 uo
 KD
-XZ
-XZ
-XZ
+np
+np
+np
 SF
 fp
 JD
@@ -38968,13 +39097,13 @@ Hv
 rb
 iE
 eE
-xc
+bQ
 Fb
 LR
-nl
+aS
 iT
 QB
-xc
+bQ
 RD
 Og
 hQ
@@ -39225,13 +39354,13 @@ UO
 rb
 iE
 eE
-xc
+bQ
 ZS
 MW
-nl
+aS
 YO
 ZS
-xc
+bQ
 RD
 Og
 Fc
@@ -39482,13 +39611,13 @@ Tq
 rb
 xa
 eE
-xc
-xc
+bQ
+bQ
 mC
-xc
+bQ
 mC
-xc
-xc
+bQ
+bQ
 RD
 uc
 Fc
@@ -39996,13 +40125,13 @@ Hg
 aG
 Su
 eE
-xc
+bQ
 LJ
 Pr
 nf
 Pr
 QP
-xc
+bQ
 RD
 zb
 Fc
@@ -40253,13 +40382,13 @@ tw
 SK
 yl
 qO
-xc
+bQ
 vz
 Rv
 YJ
 Qe
 mR
-xc
+bQ
 UL
 jO
 Az
@@ -40510,13 +40639,13 @@ No
 wl
 wl
 wl
-xc
-xc
-xc
-xc
-xc
-xc
-xc
+bQ
+bQ
+bQ
+bQ
+bQ
+bQ
+bQ
 rI
 rI
 Fc

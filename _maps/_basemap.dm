@@ -43,6 +43,10 @@
 		#include "map_files\Snake\snake_lower.dmm"
 		#include "map_files\Snake\snake_upper.dmm"
 
+		//Atlas (Fleet Mode)
+		#include "map_files\Fleet Mode\Atlas_coop\atlas_coop1.dmm"
+		#include "map_files\Fleet Mode\Atlas_coop\atlas_coop2.dmm"
+
 		#ifdef CIBUILDING
 			#include "templates.dm"
 		#endif
