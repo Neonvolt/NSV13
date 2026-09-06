@@ -68,9 +68,8 @@
 /turf/open/floor/monotile/dark,
 /area/engine/engine_room)
 "ar" = (
-/obj/structure/lattice,
 /obj/structure/lattice/catwalk,
-/obj/machinery/light/runway/delay5,
+/obj/machinery/light/runway/delay2,
 /turf/open/space/basic,
 /area/nsv/hanger/mining)
 "at" = (
@@ -542,6 +541,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/department/crew_quarters/bar)
+"cX" = (
+/obj/machinery/telecomms/processor/preset_four,
+/turf/open/floor/circuit/green/telecomms,
+/area/tcommsat/server)
 "cZ" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating/airless,
@@ -1058,7 +1061,6 @@
 /turf/open/floor/carpet/ship/beige_carpet,
 /area/crew_quarters/dorms)
 "fp" = (
-/obj/structure/lattice,
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/runway/delay3,
 /turf/open/space/basic,
@@ -2480,7 +2482,7 @@
 	},
 /area/hallway/primary/aft)
 "kV" = (
-/obj/structure/frame/machine,
+/obj/machinery/telecomms/server/presets/common,
 /turf/open/floor/circuit/green/telecomms,
 /area/tcommsat/server)
 "kW" = (
@@ -2607,6 +2609,13 @@
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/carpet/ship/beige_carpet,
 /area/crew_quarters/dorms)
+"lr" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/table,
+/turf/open/floor/monotile/steel,
+/area/engine/gravity_generator)
 "ls" = (
 /obj/structure/table/wood,
 /obj/machinery/computer/ship/viewscreen,
@@ -2944,6 +2953,12 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 8
+	},
 /turf/open/floor/plasteel/ridged/steel,
 /area/nsv/hanger/storage)
 "mF" = (
@@ -3086,7 +3101,6 @@
 "ng" = (
 /obj/structure/hull_plate,
 /obj/structure/lattice/catwalk,
-/obj/machinery/light/runway/delay4,
 /turf/open/space/basic,
 /area/nsv/hanger/mining)
 "nh" = (
@@ -3198,7 +3212,7 @@
 	dir = 1;
 	pixel_y = -23
 	},
-/obj/structure/frame/machine,
+/obj/machinery/telecomms/hub/preset,
 /turf/open/floor/circuit/green/telecomms,
 /area/tcommsat/server)
 "nM" = (
@@ -3411,6 +3425,10 @@
 /obj/machinery/icecream_vat,
 /turf/open/floor/plasteel/checker,
 /area/crew_quarters/kitchen)
+"oK" = (
+/obj/machinery/telecomms/receiver/preset_right,
+/turf/open/floor/circuit/green/telecomms,
+/area/tcommsat/server)
 "oL" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -3444,6 +3462,9 @@
 /area/space/nearstation)
 "oQ" = (
 /obj/machinery/light,
+/obj/machinery/door/airlock/ship/hatch{
+	dir = 4
+	},
 /turf/open/floor/plasteel/dark/side{
 	dir = 1
 	},
@@ -3842,6 +3863,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/ship/hatch{
+	dir = 4
 	},
 /turf/open/floor/monotile/dark,
 /area/hallway/primary/aft)
@@ -4280,6 +4304,10 @@
 	},
 /turf/open/floor/carpet/ship/beige_carpet,
 /area/crew_quarters/dorms/nsv/dorms_2)
+"sL" = (
+/obj/machinery/telecomms/broadcaster/preset_right,
+/turf/open/floor/circuit/green/telecomms,
+/area/tcommsat/server)
 "sM" = (
 /obj/machinery/power/apc/auto_name/west,
 /obj/structure/cable{
@@ -4785,6 +4813,7 @@
 /turf/open/floor/monotile/dark,
 /area/nsv/weapons/fore)
 "uM" = (
+/obj/structure/table,
 /turf/open/floor/monotile/steel,
 /area/engine/gravity_generator)
 "uN" = (
@@ -4997,10 +5026,6 @@
 	},
 /area/tcommsat/server)
 "vz" = (
-/obj/machinery/light/small{
-	brightness = 3;
-	dir = 1
-	},
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/structure/tank_dispenser/oxygen,
 /turf/open/floor/monotile/steel,
@@ -5012,7 +5037,7 @@
 	},
 /area/hallway/primary/fore)
 "vB" = (
-/obj/item/stack/sheet/iron/ten,
+/obj/machinery/telecomms/bus/preset_four,
 /turf/open/floor/circuit/green/telecomms,
 /area/tcommsat/server)
 "vC" = (
@@ -7228,6 +7253,7 @@
 /obj/effect/turf_decal/ship/techfloor/grid{
 	dir = 4
 	},
+/obj/machinery/ntnet_relay,
 /turf/open/floor/circuit/green/telecomms,
 /area/tcommsat/server)
 "Fs" = (
@@ -7348,6 +7374,25 @@
 	},
 /turf/open/floor/monotile/dark,
 /area/nsv/hanger/mining)
+"FZ" = (
+/obj/machinery/door/airlock/ship/external/glass{
+	name = "Pressurization Chamber";
+	req_one_access_txt = "31;48"
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 8
+	},
+/turf/open/floor/plasteel/ridged/steel,
+/area/nsv/hanger/storage)
 "Ga" = (
 /obj/machinery/cryopod,
 /turf/open/floor/plasteel/dark/side{
@@ -7588,7 +7633,7 @@
 	pixel_x = 10;
 	pixel_y = 25
 	},
-/obj/machinery/telecomms/relay/preset/mining,
+/obj/structure/frame/machine,
 /turf/open/floor/circuit/green/telecomms,
 /area/tcommsat/server)
 "GL" = (
@@ -8509,7 +8554,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/ridged/steel,
-/area/nsv/hanger/mining)
+/area/nsv/hanger/storage)
 "KI" = (
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/plasteel/dark/side{
@@ -8667,11 +8712,16 @@
 /turf/open/floor/monotile/dark,
 /area/hallway/secondary/entry)
 "LE" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/open/floor/plating/airless,
+/obj/machinery/door/airlock/ship/hatch,
+/obj/machinery/door/firedoor/border_only/directional/south,
+/obj/machinery/door/firedoor/border_only/directional/north,
+/turf/open/floor/monotile/dark/airless{
+	initial_gas_mix = "n2=100;TEMP=80";
+	name = "telecomms server floor"
+	},
 /area/tcommsat/server)
 "LF" = (
 /obj/machinery/camera/autoname{
@@ -8688,6 +8738,10 @@
 "LJ" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 8
+	},
+/obj/machinery/light/small{
+	brightness = 3;
+	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/nsv/hanger/storage)
@@ -9440,6 +9494,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/airlock/ship/hatch{
+	dir = 4
+	},
 /turf/open/floor/monotile/dark,
 /area/hallway/primary/aft)
 "Oy" = (
@@ -9597,13 +9654,9 @@
 	},
 /area/crew_quarters/dorms)
 "Ph" = (
-/obj/machinery/door/airlock/ship/hatch{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only/directional/east,
-/obj/machinery/door/firedoor/border_only/directional/west,
-/turf/open/floor/monotile/dark,
-/area/hallway/primary/aft)
+/obj/machinery/telecomms/message_server/preset,
+/turf/open/floor/circuit/green/telecomms,
+/area/tcommsat/server)
 "Pi" = (
 /turf/open/floor/plasteel/dark/side,
 /area/hallway/secondary/entry)
@@ -9922,7 +9975,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/ridged/steel,
-/area/nsv/hanger/mining)
+/area/nsv/hanger/storage)
 "Qw" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
@@ -9988,6 +10041,9 @@
 "QP" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
 	dir = 8
+	},
+/obj/machinery/light/small{
+	brightness = 3
 	},
 /turf/open/floor/plasteel,
 /area/nsv/hanger/storage)
@@ -10429,12 +10485,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
 /turf/open/floor/plasteel/dark/side,
 /area/crew_quarters/bar)
-"SF" = (
-/obj/structure/lattice,
-/obj/structure/lattice/catwalk,
-/obj/machinery/light/runway/delay2,
-/turf/open/space/basic,
-/area/nsv/hanger/mining)
 "SG" = (
 /obj/structure/sign/directions/plaque/engineering{
 	dir = 1;
@@ -10632,6 +10682,21 @@
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
+"Tl" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/ship/hatch{
+	dir = 4
+	},
+/turf/open/floor/monotile/dark,
+/area/hallway/primary/aft)
 "Tp" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 5
@@ -31111,7 +31176,7 @@ kw
 MZ
 MZ
 nl
-up
+lr
 Tr
 bL
 up
@@ -31373,7 +31438,7 @@ jy
 xc
 xc
 xc
-Ph
+rK
 rK
 rK
 rK
@@ -31886,7 +31951,7 @@ rZ
 fe
 oG
 qi
-kV
+Ph
 tX
 kV
 fC
@@ -32400,9 +32465,9 @@ Zh
 eq
 Sa
 qi
-kV
+oK
 dH
-kV
+cX
 fC
 Hs
 zL
@@ -32914,7 +32979,7 @@ EN
 eq
 Sa
 qi
-kV
+sL
 Ja
 vB
 fC
@@ -34967,7 +35032,7 @@ tK
 Ly
 rK
 Zh
-eq
+Tl
 Sa
 qP
 PW
@@ -36284,13 +36349,13 @@ uo
 uo
 uo
 KD
-np
-np
-np
-SF
-fp
-ng
 ar
+np
+fp
+np
+JD
+ng
+Rm
 gX
 gX
 gX
@@ -38840,13 +38905,13 @@ Hv
 Eu
 uo
 uo
-uo
-uo
+bQ
+bQ
 KG
-uo
+bQ
 Qt
-uo
-uo
+bQ
+bQ
 uo
 uo
 uo
@@ -38854,12 +38919,12 @@ uo
 uo
 uo
 KD
+ar
 np
-np
-np
-SF
 fp
+np
 JD
+np
 Rm
 gX
 gX
@@ -39615,7 +39680,7 @@ bQ
 bQ
 mC
 bQ
-mC
+FZ
 bQ
 bQ
 RD
