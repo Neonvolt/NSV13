@@ -615,9 +615,6 @@
 "dq" = (
 /turf/open/floor/monotile/dark,
 /area/engine/gravity_generator)
-"dw" = (
-/turf/open/space/basic,
-/area/crew_quarters/bar)
 "dz" = (
 /obj/machinery/camera/autoname{
 	dir = 4
@@ -823,14 +820,10 @@
 /turf/open/floor/monotile/dark,
 /area/hallway/primary/aft)
 "er" = (
-/obj/machinery/mineral/ore_redemption{
-	dir = 1;
-	input_dir = 2;
-	req_access = null
-	},
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
+/obj/structure/rack,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /turf/open/floor/plasteel/dark/side,
 /area/hallway/primary/fore)
 "ew" = (
@@ -4208,11 +4201,10 @@
 /turf/open/floor/plating,
 /area/nsv/weapons/fore)
 "sq" = (
-/obj/machinery/mineral/ore_redemption{
-	output_dir = 1;
-	req_access = null
-	},
-/obj/structure/cable,
+/obj/structure/rack,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /turf/open/floor/plasteel/dark/side{
 	dir = 1
 	},
@@ -5372,9 +5364,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "xb" = (
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -7537,9 +7526,6 @@
 /turf/open/floor/monotile/dark,
 /area/hallway/secondary/entry)
 "Gy" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -41722,7 +41708,7 @@ rn
 ra
 ra
 ra
-dw
+dV
 Do
 Ww
 Ww
