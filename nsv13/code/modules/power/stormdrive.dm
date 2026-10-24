@@ -182,6 +182,42 @@ Control Rods
 	icon = 'nsv13/goonstation/icons/reactor_solgov.dmi'
 	theoretical_maximum_power = 20000000
 
+/obj/machinery/atmospherics/components/binary/stormdrive_reactor/stable/handle_reactor_stability()
+	if(reactor_stability > 100)
+		reactor_stability = 100
+	if(reactor_stability < 0)
+		reactor_stability = 0
+
+	if(reactor_stability < 75)
+		if(prob((100 - reactor_stability) / 4)) //Destabilize the balance a little
+			if(prob(50))
+				heat += reaction_rate * rand(5,8)
+			else
+				reaction_rate += reaction_rate / rand(3,5)
+
+	if(reactor_stability < 15)
+		if(prob(1))
+			var/anom = rand(1,10)
+			switch(anom)
+				if(1 to 4)
+					new /obj/effect/anomaly/stormdrive/surge(src, rand(2000, 5000))
+				if(5 to 8)
+					new /obj/effect/anomaly/stormdrive/sheer(src, rand(2000, 5000))
+				if(9 to 10)
+					new /obj/effect/anomaly/stormdrive/squall(src, rand(2000, 5000))
+			reactor_stability += 15 //Spike that stab back up
+			playsound(loc, 'sound/effects/empulse.ogg', 100)
+
+	switch(reactor_stability) //Entropy nudge
+		if(0 to 1)
+			heat += 1
+		if(1 to 15)
+			heat += 0.5
+		if(15 to 30)
+			heat += 0.1
+		if(30 to 75)
+			heat += 0.01
+
 //////// REACTOR INTERACTIONS /////////
 
 /obj/machinery/atmospherics/components/binary/stormdrive_reactor/attackby(obj/item/I, mob/living/carbon/user, params)
