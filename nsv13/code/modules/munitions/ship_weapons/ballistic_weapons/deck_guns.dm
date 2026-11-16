@@ -777,3 +777,16 @@
 			bound_height = 96
 			bound_x = -32
 			bound_y = -32
+
+/obj/machinery/deck_turret/powder_gate/autoloader
+	name = "powder loading gate mk 2"
+	desc = "One of three gates which pack a shell with powder as they enter the gun core. This one has experimental autloading mechanism known to its low resource."
+
+/obj/machinery/deck_turret/powder_gate/autoloader/proc/pikcup()
+	// this is basically the replacement of powder_gate/attackby() cause the machine picks up the powder bag by itself
+	if(bag)
+		return FALSE
+	if(loading)
+		return FALSE
+	// now, check neighbour tile (according to set dir of machinery) if it has a powder bag (only one, return FALSE if it's a pile, to avoid cheesing)
+	// if all checks pass, machine should eat the found bag and call pack()
