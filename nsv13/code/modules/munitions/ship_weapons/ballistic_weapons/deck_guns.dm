@@ -152,6 +152,10 @@
 	circuit = /obj/item/circuitboard/computer/deckgun
 	var/obj/machinery/deck_turret/core/core
 
+/obj/machinery/computer/deckgun/autoloader
+	name = "Deck Gun (mk2 autoloader) Control Console"
+	circuit = /obj/item/circuitboard/computer/deckgun/autoloader
+
 /obj/machinery/computer/deckgun/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
 	for(var/obj/machinery/deck_turret/core/maybe_core in orange(1, src))
@@ -179,6 +183,13 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "DeckGun")
+		ui.open()
+		ui.set_autoupdate(TRUE) // Loading delay, firing updates
+
+/obj/machinery/computer/deckgun/autoloader/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "DeckGunAutoloader")
 		ui.open()
 		ui.set_autoupdate(TRUE) // Loading delay, firing updates
 
@@ -249,6 +260,40 @@
 				to_chat(usr, "<span class='warning'>Action error - missing components.</span>")
 				return
 			core.payload_gate.chamber(target)
+
+/obj/machinery/computer/deckgun/autoloader/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
+	if(!core) //Runtime galore
+		return
+	var/obj/machinery/deck_turret/powder_gate/autoloader/target = locate(params["target"])
+	switch(action)
+		if("load")
+			if(core.turret.maint_state > MSTATE_CLOSED)//Can't load a shell if we're doing maintenance
+				to_chat(usr, "<span class='notice'>Cannot feed shell while undergoing maintenance!</span>")
+				return
+			if(!core.turret || !core.payload_gate)
+				to_chat(usr, "<span class='warning'>Action error - missing components.</span>")
+				return
+			if(!core.turret.rack_load(core.payload_gate.shell))
+				return
+			core.payload_gate.shell = null
+			core.payload_gate.unload()
+			if(locate(/obj/machinery/deck_turret/autorepair) in orange(1, core))
+				core.turret.maint_req ++
+				core.turret.maint_req = CLAMP(core.turret.maint_req, 0, 25)
+				new /obj/effect/temp_visual/heal(get_turf(core), "#375637")
+		if("load_powder")
+			if(!core.payload_gate)
+				to_chat(usr, "<span class='warning'>Action error - missing components.</span>")
+				return
+			core.payload_gate.chamber(target)
+		if("pickup_powder")
+			if(!core.payload_gate)
+				to_chat(usr, "<span class='warning'>Action error - missing components.</span>")
+				return
+			target.pickup() // eeeh this doesn't work
 
 /obj/machinery/deck_turret
 	name = "deck turret machine basetype"
@@ -780,13 +825,40 @@
 
 /obj/machinery/deck_turret/powder_gate/autoloader
 	name = "powder loading gate mk 2"
-	desc = "One of three gates which pack a shell with powder as they enter the gun core. This one has experimental autloading mechanism known to its low resource."
+	desc = "One of three gates which pack a shell with powder as they enter the gun core. This one has experimental autloading mechanism known to its low reliability."
 
-/obj/machinery/deck_turret/powder_gate/autoloader/proc/pikcup()
-	// this is basically the replacement of powder_gate/attackby() cause the machine picks up the powder bag by itself
+/obj/machinery/deck_turret/powder_gate/autoloader/proc/pickup()
 	if(bag)
 		return FALSE
 	if(loading)
 		return FALSE
-	// now, check neighbour tile (according to set dir of machinery) if it has a powder bag (only one, return FALSE if it's a pile, to avoid cheesing)
-	// if all checks pass, machine should eat the found bag and call pack()
+
+	var/turf/T = get_step(src, dir)
+	if(!T)
+		return FALSE
+
+	var/list/bags = list()
+	for(var/obj/item/P in T)
+		if(istype(P, ammo_type))
+			bags += P
+
+	if(length(bags) != 1)
+		return FALSE
+
+	var/obj/item/target_bag = bags[1]
+
+	loading = TRUE
+
+	sleep(2 SECONDS)
+
+	if(QDELETED(src) || QDELETED(target_bag) || target_bag.loc != T || bag)
+		loading = FALSE
+		return FALSE
+
+	bag = target_bag
+	bag.forceMove(src)
+//	icon_state = "[initial(icon_state)]_loaded"
+	playsound(src, 'nsv13/sound/effects/ship/mac_load.ogg', 100, 1)
+
+	loading = FALSE
+	return TRUE

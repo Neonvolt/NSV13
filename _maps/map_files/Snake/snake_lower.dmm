@@ -3638,12 +3638,14 @@
 /obj/effect/turf_decal/tile/ship/orange{
 	dir = 4
 	},
-/obj/machinery/deck_turret/powder_gate,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
+	},
+/obj/machinery/deck_turret/powder_gate/autoloader{
+	dir = 8
 	},
 /turf/open/floor/engine,
 /area/nsv/weapons/fore)
@@ -3652,7 +3654,9 @@
 	dir = 9
 	},
 /obj/effect/turf_decal/tile/ship/orange,
-/obj/machinery/deck_turret/powder_gate,
+/obj/machinery/deck_turret/powder_gate/autoloader{
+	dir = 8
+	},
 /turf/open/floor/engine,
 /area/nsv/weapons/fore)
 "np" = (
@@ -3862,7 +3866,6 @@
 /turf/open/floor/plasteel,
 /area/engine/storage)
 "nU" = (
-/obj/machinery/computer/deckgun,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/tile/ship/orange{
 	dir = 4
@@ -3876,6 +3879,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/machinery/computer/deckgun/autoloader,
 /turf/open/floor/engine,
 /area/nsv/weapons/fore)
 "nV" = (
@@ -11239,7 +11243,9 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/ship/orange,
-/obj/machinery/deck_turret/powder_gate,
+/obj/machinery/deck_turret/powder_gate/autoloader{
+	dir = 8
+	},
 /turf/open/floor/engine,
 /area/nsv/weapons/fore)
 "Nq" = (

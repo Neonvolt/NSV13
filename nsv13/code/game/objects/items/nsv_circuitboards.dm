@@ -226,6 +226,10 @@
 	build_path = /obj/machinery/computer/deckgun
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
+/obj/item/circuitboard/computer/deckgun/autoloader
+	name = "deck gun loading computer (mk2 autoloader) (Machine Board)"
+	build_path = /obj/machinery/computer/deckgun/autoloader
+
 /obj/item/circuitboard/machine/deck_gun
 	needs_anchored = FALSE
 
